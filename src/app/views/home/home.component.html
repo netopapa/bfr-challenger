@@ -1,0 +1,40 @@
+<h5 class="title">Categorias</h5>
+<swiper [config]="config">
+    <div class="swiper-wrapper">
+        <button class="swiper-slide" (click)="getNotices()">
+            Todos
+        </button>
+
+        <button *ngFor="let type of types" class="swiper-slide" (click)="filterByType(type.type)">
+            {{type.name}}
+        </button>
+    </div>
+</swiper>
+
+<ul id="notice-list">
+    <li *ngFor="let notice of notices" [ngClass]="{
+        'is': notice.type === 0,
+        'fdv': notice.type === 1,
+        'vl': notice.type === 2,
+        'tsv': notice.type === 3,
+        'opened': isOpen(notice)
+      }" (click)="showDetails(notice.id)">
+        <div class="header">
+            <h4>{{notice.title}}</h4>
+            <h4>{{notice.id}}</h4>
+        </div>
+        <div class="body" *ngIf="notice.files">
+            <a target="_blanc" href="{{file.url}}" class="file" *ngFor="let file of notice.files">
+                <div>
+                    <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i>
+                    {{file.name}}
+                </div>
+                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div class="footer">
+            <h5>{{tellMyType(notice.type)}}</h5>
+            <h5>{{notice.date | date:'M/d/yyyy h:mm'}}</h5>
+        </div>
+    </li>
+</ul>

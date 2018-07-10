@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+}
+
+button {
+    outline: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.centralizado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-simple {
+    background-color: transparent;
+    border: 0;
+}
+
+.white {
+    color: #ffffff;
+}

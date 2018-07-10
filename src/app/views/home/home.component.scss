@@ -1,0 +1,114 @@
+$info-sun: #FF9900;
+$forca-vendas: #56CCF2;
+$vivo-ligado: #79C126;
+$turb-vendas: #660099;
+$opened: #eaeaea;
+
+swiper{
+    height: 35px;
+}
+
+.title {
+    color: #acabac;
+    font-size: 14px;
+    margin: 10px;
+}
+
+button {
+    background-color: #ffffff;
+    padding: 7px;
+    border: 1px solid #666666;
+    transition: .3s linear;
+    height: 30px;
+    margin: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    
+    &.selected {
+        border: 2px solid #666666;
+    }
+}
+
+#notice-list {
+    padding: 5px 10px;
+
+    li {
+         padding: 5px 8px;
+         border-radius: 5px;
+         box-shadow: 2px 1px 5px #b5b5b5;
+         margin: 15px 0;
+         cursor: pointer;
+         
+        &.is {
+             border-left: 5px solid $info-sun;
+        }
+        
+        &.fdv {
+            border-left: 5px solid $forca-vendas;             
+        }
+        
+        &.vl {
+            border-left: 5px solid $vivo-ligado;                          
+        }
+        
+        &.tsv {
+            border-left: 5px solid $turb-vendas;                                       
+        }
+
+        &.opened {
+            background-color: $opened;                                       
+        }
+
+         > div {
+             display: flex;
+             align-items: center;
+             justify-content: space-between;
+
+             h4, h5 {
+                 margin: 3px 5px;
+             }
+         }
+
+         .body {
+             margin: 8px 5px;
+             
+             .file {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: baseline;
+                border: 1px solid #818181;
+                margin-top: 5px;
+                border-radius: 5px;
+                padding: 5px;
+
+                * {
+                    color: #818181;
+                }
+             }
+         }
+
+         .footer {
+            > * {
+                color: #666;
+            }
+         }
+    }
+}
+
+@media (min-width: 600px) {
+    .file {
+        width: 400px !important;
+    }
+    
+    #notice-list {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .swiper-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+}

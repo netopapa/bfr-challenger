@@ -1,0 +1,15 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #660099;
+    color: #fff;
+
+    h4 {
+        margin: 15px 0;
+    }
+
+    > div i {
+        margin: 5px 10px;
+    }
+}

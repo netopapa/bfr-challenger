@@ -1,0 +1,29 @@
+<div id="single">
+    <div class="header">
+        <i class="fa fa-arrow-left" (click)="toHome()"></i>
+        {{notice.title}}
+    </div>
+
+    <div class="body">
+        <h4 class="center">{{notice.description}}</h4>
+
+        <div class="type">
+            <span>{{tellMyType(notice.type)}}</span>
+            <span>{{notice.date | date:'M/d/yyyy h:mm'}}</span>
+        </div>
+
+        <legend class="title">Descrição completa:</legend>
+        <p>{{notice.fullDescription}}</p>
+    </div>
+
+    <div class="footer" *ngIf="notice.files">
+        <legend class="title">Downloads:</legend>
+        <a target="_blanc" href="{{file.url}}" class="file" *ngFor="let file of notice.files">
+            <div>
+                <i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i>
+                {{file.name}}
+            </div>
+            <i class="fa fa-cloud-download" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>

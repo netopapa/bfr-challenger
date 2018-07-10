@@ -14,10 +14,35 @@ export class NoticeService extends RestService {
 
   constructor(http: Http) {
     super(http);
-   }
+  }
 
-   public findAll(): Observable<Notice[]> {
+  public findAll(): Observable<Notice[]> {
     return this.get(this.baseURL);
+  }
+
+  public saveOpenedNotice(id: number): void {
+    let opens: number[] = [];
+
+    if (localStorage.getItem('opens')) {
+      opens = JSON.parse(localStorage.getItem('opens'));
+      opens.push(id);
+    }
+
+    opens.push(id);
+    localStorage.setItem('opens', JSON.stringify(opens));
+  }
+
+  public getOpeneds(): number[] {
+    return localStorage.getItem('opens') ? JSON.parse(localStorage.getItem('opens')) : [];
+  }
+
+  public isOpened(id: number): boolean {
+    const found = this.getOpeneds().find((ntcs) => ntcs === id);
+    if (found) {
+      return true;
+    }
+
+    return false;
   }
 
 }
